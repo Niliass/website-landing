@@ -1,0 +1,50 @@
+@use "../../assets/styles/abastract/" as *;
+
+.skills {
+  &__content {
+    display: flex;
+  }
+  &__img {
+    display: none;
+    @include lg {
+      display: block;
+    }
+  }
+  &__holder {
+    display: grid;
+    gap: 1rem;
+    flex: 1;
+  }
+}
+.skill {
+  display: grid;
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__title {
+    font-size: 1.25rem;
+  }
+  &__progress {
+    color: $main-color;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 0 0.6rem;
+    border: 1px solid lighten($text-color, 30%);
+    border-radius: 5px;
+  }
+  &__progress--bar {
+    position: relative;
+    background-color: $bg-color;
+    height: 30px;
+    margin-top: 1rem;
+    &::before {
+      content: "";
+      position: absolute;
+      width: calc(var(--progress, 0) * 1%);
+      height: 100%;
+      background-color: $main-color;
+    }
+  }
+}

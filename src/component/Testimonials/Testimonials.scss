@@ -1,0 +1,30 @@
+@use "../../assets/styles/abastract/" as *;
+
+.testimonial {
+  display: grid;
+  gap: 0.35rem;
+  position: relative;
+  background-color: white;
+  padding: 1.35rem;
+  border-radius: 7px;
+  &__img {
+    position: absolute;
+    top: -50px;
+    right: -10px;
+    width: 100px;
+    border: 10px solid $bg-color;
+    border-radius: 50%;
+  }
+  &__title {
+    font-size: 1.25rem;
+  }
+  &__job {
+    font-size: 0.95rem;
+  }
+  &__stars {
+    font-size: 1.1rem;
+    .filled {
+      color: hsl(45deg 100% 51.37%);
+    }
+  }
+}

@@ -1,0 +1,47 @@
+@use "../../assets/styles/abastract/" as *;
+
+.gallery {
+  &__box {
+    background-color: white;
+    padding: 1.5rem;
+    &:hover {
+      .gallery {
+        &--img {
+          transform: scale(1.1) rotate(5deg);
+        }
+        &__holder::before {
+          animation: bg-trans 0.25s linear;
+        }
+      }
+    }
+  }
+  &--img {
+    transition: $main-transition;
+  }
+  &__holder {
+    position: relative;
+    overflow: hidden;
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      background-color: white;
+      width: 100%;
+      height: 100%;
+      scale: 0;
+      transition: $main-transition;
+    }
+  }
+}
+@keyframes bg-trans {
+  0% {
+    background-color: white;
+    scale: 0;
+    opacity: 1;
+  }
+  100% {
+    background-color: transparent;
+    scale: 2;
+    opacity: 1;
+  }
+}

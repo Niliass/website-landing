@@ -1,0 +1,72 @@
+@use "../../assets/styles/abastract/" as *;
+
+.team {
+  position: relative;
+  padding-top: 3.5rem;
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    border-radius: 10px;
+  }
+  &::before {
+    width: 80%;
+    background-color: $bg-color;
+  }
+  &::after {
+    width: 0;
+    background: rgb(gray, 0.25);
+    transition: $main-transition;
+  }
+  &__holder {
+    display: flex;
+    align-items: center;
+  }
+  &__img {
+    width: calc(100% - 60px);
+    border-radius: 10px;
+    filter: grayscale(0);
+    transition: $main-transition;
+  }
+  &__social {
+    display: grid;
+    gap: 1.5rem;
+    flex: 1;
+    text-align: center;
+    font-size: 1.1rem;
+    &--link {
+      color: $text-color;
+      transition: $main-transition;
+      &:hover {
+        color: $main-color;
+      }
+    }
+  }
+  &__info {
+    padding-block: 1.25rem;
+    padding-left: calc(20% + 1.5rem);
+  }
+  &__name {
+    color: $main-color;
+    font-size: 1.45rem;
+    margin-bottom: 0.35rem;
+    transition: $main-transition;
+  }
+  &:hover {
+    &::after {
+      width: 80%;
+    }
+    .team {
+      &__img {
+        filter: grayscale(1);
+      }
+      &__name {
+        color: $text-color;
+      }
+    }
+  }
+}

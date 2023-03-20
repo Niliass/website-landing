@@ -1,0 +1,92 @@
+@use "../../assets/styles/abastract/" as *;
+
+.discount {
+  @include lg {
+    display: flex;
+  }
+  &__info {
+    flex: 1;
+    position: relative;
+    text-align: center;
+    background-color: rgb($main-color-alt, 0.96);
+  }
+  &__title {
+    color: white;
+    font-size: 2.5rem;
+    padding-block: 3.25rem 1.5rem;
+    letter-spacing: -2px;
+  }
+  &__desc {
+    color: white;
+    max-width: 500px;
+    margin: auto;
+  }
+  &__img {
+    width: 325px;
+    margin: 2.5rem auto 0;
+  }
+  &__bg {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    animation: changeBg 10s linear infinite alternate;
+  }
+  &__form {
+    flex: 1;
+    padding-block: 3.25rem;
+    &--title {
+      font-size: 2.5rem;
+      text-align: center;
+      padding-bottom: 1.75rem;
+    }
+    &--content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      width: min(350px, 100%);
+      margin: auto;
+    }
+    %input {
+      background-color: lighten($text-color, 56%);
+      border-bottom: 1px solid lighten($text-color, 40%);
+      padding: 1rem 0.9rem;
+      &::placeholder {
+        transition: $main-transition;
+      }
+      &:focus::placeholder {
+        opacity: 0;
+      }
+    }
+    &--input {
+      @extend %input;
+    }
+    &--textarea {
+      @extend %input;
+      resize: none;
+      min-height: 150px;
+    }
+    &--sub {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: white;
+      background-color: $main-color;
+      padding: 0.77rem;
+      transition: $main-transition;
+      &:hover {
+        background-color: $main-color-alt;
+      }
+    }
+  }
+}
+
+@keyframes changeBg {
+  0% {
+    background-image: url("./images/discount-background1.jpg");
+  }
+  100% {
+    background-image: url("./images/discount-background2.jpg");
+  }
+}

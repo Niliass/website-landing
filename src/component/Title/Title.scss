@@ -1,0 +1,87 @@
+@use "../../assets/styles/abastract/" as *;
+
+.title {
+  position: relative;
+  width: fit-content;
+  padding: 0.75rem 1.75rem;
+  margin: 0 auto $main-padding;
+
+  text-transform: uppercase;
+  border: 2px solid black;
+  transition: $main-transition;
+  isolation: isolate;
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    z-index: -1;
+    width: 13px;
+    height: 13px;
+    background-color: $main-color;
+    border-radius: 50%;
+    translate: 0 -50%;
+    transition: $main-transition;
+  }
+  &::before {
+    left: -40px;
+  }
+  &::after {
+    right: -40px;
+  }
+  &:hover {
+    animation: change-color 0.4s linear 0.3s forwards;
+    &::before {
+      animation: move-to-left 0.4s linear forwards;
+    }
+    &::after {
+      animation: move-to-right 0.4s linear forwards;
+    }
+  }
+  h2 {
+    font-size: clamp(1.45rem, 5vw, 1.95rem);
+  }
+}
+
+@keyframes move-to-left {
+  0% {
+    left: -15px;
+  }
+  25% {
+    left: 0;
+    border-radius: 0;
+  }
+  100% {
+    left: 0;
+    width: 50%;
+    height: 100%;
+    z-index: -1;
+    border-radius: 0;
+  }
+}
+@keyframes move-to-right {
+  0% {
+    right: -15px;
+  }
+  25% {
+    right: 0;
+    border-radius: 0;
+  }
+  100% {
+    right: 0;
+    width: 50%;
+    height: 100%;
+    z-index: -1;
+    border-radius: 0;
+  }
+}
+@keyframes change-color {
+  0% {
+    color: black;
+    border-color: black;
+  }
+  100% {
+    color: white;
+    border-color: white;
+  }
+}

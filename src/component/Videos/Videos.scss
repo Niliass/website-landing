@@ -1,0 +1,73 @@
+@use "../../assets/styles/abastract/" as *;
+
+.videos {
+  &__content {
+    @include lg {
+      display: flex;
+    }
+  }
+  &__list {
+    border: 1px solid lighten($text-color, 50%);
+    @include lg {
+      width: 360px;
+    }
+    &--head {
+      display: flex;
+      justify-content: space-between;
+      background-color: $bg-color;
+      padding: 1rem 1.25rem;
+    }
+    &--title {
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: black;
+    }
+    .shuffle {
+      color: $main-color;
+    }
+  }
+}
+.video {
+  &__btn {
+    width: 100%;
+    text-align: left;
+    padding: 0.8rem 1.25rem;
+    border-top: 1px solid lighten($text-color, 50%);
+    transition: $main-transition;
+    &.active {
+      background-color: lighten($text-color, 57%);
+      :first-child {
+        color: $main-color;
+      }
+    }
+  }
+  &__title {
+    color: black;
+    transition: $main-transition;
+  }
+  &:hover {
+    .video {
+      &__btn {
+        background-color: lighten($text-color, 57%);
+      }
+      &__title {
+        color: $main-color;
+      }
+    }
+  }
+}
+.curVideo {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  flex: 1;
+  gap: 1rem;
+  padding: 0.5rem 0.65rem;
+  background-color: lighten($text-color, 40%);
+  &__title {
+    font-weight: 500;
+    padding: 0.75rem 1.25rem;
+    color: black;
+    background-color: white;
+  }
+}

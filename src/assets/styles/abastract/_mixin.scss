@@ -1,0 +1,42 @@
+@mixin sm {
+  @media (min-width: 576px) {
+    @content;
+  }
+}
+@mixin md {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+@mixin xl {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+@mixin xxl {
+  @media (min-width: 1400px) {
+    @content;
+  }
+}
+@mixin setColor($color) {
+  .feature {
+    &__img::before {
+      background-color: rgb($color, 0.6);
+    }
+    &__title::before {
+      background-color: $color;
+    }
+    &__btn {
+      color: $color;
+      border-color: $color;
+      &::after {
+        background-color: $color;
+      }
+    }
+  }
+}
