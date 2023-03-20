@@ -1,0 +1,97 @@
+@use "../../assets/styles/abastract/" as *;
+
+.plan {
+  position: relative;
+  background-color: white;
+  box-shadow: 0 0 18px 0 lighten($text-color, 40%);
+  isolation: isolate;
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 0;
+    height: 50%;
+    background-color: lighten($text-color, 56%);
+    transition: $main-transition;
+  }
+  &::before {
+    top: 0;
+    left: 0;
+  }
+  &::after {
+    bottom: 0;
+    right: 0;
+  }
+  &:hover {
+    &::before,
+    &::after {
+      width: 100%;
+    }
+  }
+  .popular {
+    position: relative;
+    @include xl {
+      translate: 0 -30px;
+    }
+    &__content {
+      position: absolute;
+      right: 1rem;
+      color: white;
+      font-weight: bold;
+      padding: 0.75rem 0.5rem 1.75rem;
+      background: $main-color;
+      writing-mode: vertical-lr;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
+    }
+  }
+  &__head {
+    text-align: center;
+    padding-block: 1.75rem 0.5rem;
+  }
+  &__title {
+    font-size: 1.65rem;
+    margin-bottom: 1.5rem;
+  }
+  &__img {
+    width: 90px;
+    margin: 0 auto 1.5rem;
+  }
+  &__price {
+    color: $main-color;
+    font-size: 4rem;
+    font-weight: bold;
+  }
+  &__dur {
+    font-size: 0.9rem;
+    margin-block: 0.35rem;
+  }
+  &__feature {
+    display: flex;
+    align-items: center;
+    gap: 0.95rem;
+    padding: 0.95rem 1.25rem;
+    border-top: 1px solid lighten($text-color, 50%);
+    &--icon {
+      color: $main-color;
+    }
+    &--content {
+      color: black;
+    }
+  }
+  &__btn {
+    display: block;
+    color: $main-color;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin: 2.5rem auto;
+    padding: 1rem 1.5rem;
+    border: 3px solid $main-color;
+    border-radius: 10px;
+    transition: $main-transition;
+    &:hover {
+      color: white;
+      background: $main-color;
+    }
+  }
+}

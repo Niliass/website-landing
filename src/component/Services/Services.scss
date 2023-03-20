@@ -1,0 +1,76 @@
+@use "../../assets/styles/abastract/" as *;
+
+.service {
+  position: relative;
+  background-color: white;
+  box-shadow: 0 5px 20px 0 rgb(gray, 50%);
+  transition: $main-transition;
+  &::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background-color: $main-color;
+    translate: -50% 0;
+    transition: $main-transition;
+  }
+  &:hover {
+    translate: 0 -10px;
+    box-shadow: 0 5px 20px 0 rgb(gray, 70%);
+    &::before {
+      width: 100%;
+    }
+  }
+  &__head {
+    display: grid;
+    place-items: center;
+    gap: 1.25rem;
+    padding-block: 1.75rem;
+    color: hsl(0deg 0% 83.53%);
+  }
+  &__title {
+    color: $main-color;
+    font-size: 1.75rem;
+    pointer-events: none;
+  }
+  &__holder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lighten($bg-color, 5%);
+  }
+  &__num {
+    position: relative;
+    color: white;
+    font-weight: bold;
+    font-size: 1.95rem;
+    padding: 0.25rem 1.85rem;
+    isolation: isolate;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: hsl(0deg 0% 83.53%);
+    }
+    &::before {
+      left: 0;
+      z-index: -1;
+      background: $main-color;
+      clip-path: polygon(100% 0, 80% 100%, 0 100%, 0 0);
+    }
+    &::after {
+      left: 50%;
+      z-index: -2;
+      clip-path: polygon(100% 0, 80% 100%, 0 100%, 20% 0);
+    }
+  }
+  &__link {
+    color: $main-color;
+    padding-right: 1rem;
+  }
+}

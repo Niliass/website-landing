@@ -1,0 +1,110 @@
+@use "../../assets/styles/abastract/" as *;
+
+header {
+  box-shadow: 0 1px 12px 0 hsl(0deg 0% 67.06% / 52.16%);
+  @include md {
+    border-bottom: 1px solid rgb(gray, 0.2);
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding-top: 0.75rem;
+    position: relative;
+    @include md {
+      flex-direction: row;
+      justify-content: space-between;
+      padding-top: 0;
+    }
+  }
+  .#{&} {
+    &__logo {
+      width: 70px;
+    }
+    &__nav {
+      display: flex;
+      &--link {
+        position: relative;
+        padding: clamp(0.7rem, 3vw, 1.3rem) clamp(0.55rem, 3vw, 1.75rem);
+        font-size: clamp(0.9rem, 3vw, 1.2rem);
+        color: black;
+        transition: $main-transition;
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 0;
+          height: 4px;
+          background-color: $main-color;
+          transition: $main-transition;
+        }
+        &:hover {
+          color: $main-color;
+          background-color: hsl(0deg 0% 98.04%);
+          &::before {
+            width: 100%;
+          }
+        }
+      }
+    }
+    &__mega--nav {
+      position: absolute;
+      top: calc(100% + 15px);
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      background: white;
+      border-bottom: 3px solid $main-color;
+      visibility: hidden;
+      opacity: 0;
+      transition: $main-transition;
+      @include md {
+        display: flex;
+        align-items: flex-start;
+        gap: 3rem;
+        padding: 2rem;
+      }
+      &.active {
+        top: calc(100% + 1px);
+        visibility: visible;
+        opacity: 1;
+      }
+      &--img {
+        display: none;
+        width: clamp(150px, 30vw, 400px);
+        @include lg {
+          display: block;
+        }
+      }
+      &--links {
+        flex: 1;
+      }
+      &--link {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        position: relative;
+        padding: 1rem;
+        color: $main-color;
+        font-weight: 600;
+        font-size: 1.15rem;
+        border-top: 1px solid rgb(gray, 0.1);
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          z-index: -1;
+          width: 0;
+          height: 100%;
+          background-color: hsl(0deg 0% 98.04%);
+          transition: $main-transition;
+        }
+        &:hover::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

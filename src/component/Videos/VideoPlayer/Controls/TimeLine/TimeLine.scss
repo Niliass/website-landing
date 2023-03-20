@@ -1,0 +1,45 @@
+@use "../../../../../assets/styles/abastract/" as *;
+
+.timeLine {
+  display: grid;
+  place-items: center;
+  background-color: $main-color;
+  width: calc(var(--percent, 0) * 1%);
+  height: 100%;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    right: -5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: $main-color;
+    transition: $main-transition;
+    scale: 0;
+  }
+  &__bar:hover &::before {
+    scale: 1;
+  }
+  &__bar {
+    width: 98%;
+    height: 3px;
+    background: rgb(255 255 255 / 25%);
+    margin: auto;
+    cursor: pointer;
+    position: relative;
+    transition: $main-transition;
+    &::before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      background: rgb(255 255 255 / 45%);
+    }
+    &:hover {
+      height: 5px;
+      &::before {
+        width: calc(var(--progress, 0) * 1px);
+      }
+    }
+  }
+}

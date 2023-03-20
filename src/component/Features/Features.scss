@@ -1,0 +1,96 @@
+@use "../../assets/styles/abastract/" as *;
+
+.feature {
+  text-align: center;
+  border: 1px solid rgb(gray, 0.4);
+  &__img {
+    position: relative;
+    overflow: hidden;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    &::before {
+      background: rgb(red, 0.4);
+    }
+    &::after {
+      background-color: white;
+      scale: 1.1;
+      clip-path: polygon(100% 50%, 100% 100%, 0 100%, 0 85%);
+      transition: $main-transition;
+    }
+  }
+  &__info {
+    display: grid;
+    place-items: center;
+    gap: 2rem;
+    padding: 0 1.5rem 1.5rem;
+  }
+  &__title {
+    position: relative;
+    font-size: 2.75rem;
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      width: 80%;
+      height: 5px;
+      border-radius: 10px;
+      background-color: red;
+      translate: -50%;
+    }
+  }
+  &__desc {
+    font-size: 1.15rem;
+    line-height: 1.9;
+  }
+  &__btn {
+    position: relative;
+    padding: 0.55rem 1.5rem;
+    font-weight: bold;
+    font-size: 1.35rem;
+    color: red;
+    border: 3px solid red;
+    border-radius: 5px;
+    transition: $main-transition;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 0;
+      height: 100%;
+      background: red;
+      transition: $main-transition;
+    }
+  }
+  &:first-of-type {
+    @include setColor(hsl(3.16deg 89.62% 58.43%));
+  }
+  &:nth-of-type(2) {
+    @include setColor(hsl(174.4deg 100% 29.41%));
+  }
+  &:nth-of-type(3) {
+    @include setColor(hsl(198.67deg 97.57% 48.43%));
+  }
+  &:hover {
+    .feature {
+      &__img::after {
+        clip-path: polygon(0% 65%, 115% 100%, 0 100%, 0 85%);
+      }
+      &__btn {
+        color: white;
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

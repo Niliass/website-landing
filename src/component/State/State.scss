@@ -1,0 +1,72 @@
+@use "../../assets/styles/abastract/" as *;
+
+.stats {
+  position: relative;
+  padding-block: $main-padding;
+  text-align: center;
+  &__title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  &__bg {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    opacity: 0.05;
+    object-fit: cover;
+  }
+}
+.stat {
+  position: relative;
+  color: black;
+  background-color: white;
+  padding-block: 2.25rem;
+  opacity: 0.8;
+  transition: 1s;
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 0;
+    background-color: $main-color;
+    transition: 1s;
+  }
+  &::before {
+    left: 0;
+    bottom: 0;
+  }
+  &::after {
+    right: 0;
+    top: 0;
+  }
+  &:hover {
+    opacity: 1;
+    &::after,
+    &::before {
+      height: 100%;
+    }
+  }
+  &--icon {
+    font-size: 2.25rem;
+  }
+  &__num {
+    font-size: 3rem;
+    margin-block: 0.7rem;
+    pointer-events: none;
+  }
+  &__title {
+    font-style: italic;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: $main-color;
+    pointer-events: none;
+  }
+}
