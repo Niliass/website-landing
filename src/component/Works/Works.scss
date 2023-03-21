@@ -19,6 +19,7 @@
 .work {
   display: flex;
   align-items: center;
+  flex-direction: column;
   gap: 1.5rem;
   position: relative;
   padding: clamp(1.5rem, 3vw, 2rem);
@@ -26,9 +27,13 @@
   border: 2px solid white;
   border-radius: 5px;
   isolation: isolate;
+  @include md {
+    flex-direction: row;
+  }
   &::before {
     content: "";
     position: absolute;
+    top: 0;
     left: 0;
     z-index: -1;
     width: 100%;
