@@ -22,12 +22,13 @@
     scale: 1;
   }
   &__bar {
+    position: relative;
     width: 98%;
     height: 3px;
     background: rgb(255 255 255 / 25%);
     margin: auto;
     cursor: pointer;
-    position: relative;
+    touch-action: none;
     transition: $main-transition;
     &::before {
       content: "";

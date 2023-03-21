@@ -12,11 +12,15 @@
     cursor: pointer;
     border-radius: 15px;
     scale: 0;
+    touch-action: none;
     transition: $main-transition;
   }
   &:hover &__bar {
     scale: 1;
-    width: 100px;
+    width: 40px;
+    @include md {
+      width: 100px;
+    }
   }
   &__line {
     display: grid;

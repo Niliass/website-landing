@@ -11,7 +11,7 @@
   &__date {
     display: flex;
     justify-content: center;
-    gap: 1.25rem;
+    gap: clamp(0.5rem, 2vw, 1.5rem);
   }
   &__holder {
     display: flex;
@@ -47,7 +47,10 @@
     margin-block: 1.85rem 1.25rem;
   }
   &__desc {
-    font-size: 1.1rem;
+    padding-inline: 0.75rem;
+    @include sm {
+      font-size: 1.1rem;
+    }
   }
   &__form {
     display: flex;

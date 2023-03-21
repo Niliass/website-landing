@@ -29,12 +29,12 @@
       width: 100%;
     }
   }
-  .popular {
+  &.popular {
     position: relative;
     @include xl {
       translate: 0 -30px;
     }
-    &__content {
+    .popular__content {
       position: absolute;
       right: 1rem;
       color: white;

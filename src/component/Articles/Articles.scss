@@ -14,7 +14,8 @@
   &__info {
     display: grid;
     gap: 0.75rem;
-    padding: 1.5rem;
+    padding-inline: clamp(1rem, 3vw, 1.5rem);
+    padding-block: clamp(1.25rem, 3vw, 1.5rem);
   }
   &__para {
     font-size: 1rem;
@@ -24,7 +25,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 1.5rem;
+    padding: 1.25rem 1.5rem;
     font-weight: bold;
     color: $main-color;
     border-top: 1px solid rgba(128, 128, 128, 0.3);

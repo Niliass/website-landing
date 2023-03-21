@@ -2,7 +2,7 @@
 
 .team {
   position: relative;
-  padding-top: 3.5rem;
+  padding-top: clamp(2.5rem, 3vw, 3.5rem);
   &::before,
   &::after {
     content: "";
@@ -14,7 +14,7 @@
     border-radius: 10px;
   }
   &::before {
-    width: 80%;
+    width: 85%;
     background-color: $bg-color;
   }
   &::after {
@@ -48,7 +48,7 @@
   }
   &__info {
     padding-block: 1.25rem;
-    padding-left: calc(20% + 1.5rem);
+    padding-left: calc(15% + 1.5rem);
   }
   &__name {
     color: $main-color;
@@ -58,7 +58,7 @@
   }
   &:hover {
     &::after {
-      width: 80%;
+      width: 85%;
     }
     .team {
       &__img {
